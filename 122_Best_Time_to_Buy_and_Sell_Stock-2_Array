@@ -1,0 +1,10 @@
+class Solution:
+    def maxProfit(self, prices: List[int]) -> int:
+        total_profit = 0 
+        #from 1 becuz we do not have any previous transaction .
+        for i in range(1,len(prices)):
+            if prices[i]>prices[i-1]:
+                #we have to only add all increasing prices
+                total_profit+= (prices[i]-prices[i-1])
+                #simply ignore if price is less than the previous
+        return total_profit
