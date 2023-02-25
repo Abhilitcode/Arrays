@@ -1,0 +1,10 @@
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        hash_map = {}  #hash map will map the val:index
+        #n VALUES HAI AND i index HAI
+        for i,n in enumerate(nums):
+            diff = target-n #n is value so diff we get is the index
+            if(diff in hash_map):
+                return [hash_map[diff],i]  #pair of index
+            hash_map[n]=i
+        return
