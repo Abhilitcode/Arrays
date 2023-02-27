@@ -1,0 +1,12 @@
+class Solution:
+    def findDuplicates(self, nums: List[int]) -> List[int]:
+        result=[] #empty set for result 
+        for n in nums:
+            at_index = nums[abs(n)-1]
+            if at_index<0: #means we have already visited the element
+                result.append(abs(n))
+            else:
+                nums[abs(n)-1]*=-1
+        return result
+
+                
