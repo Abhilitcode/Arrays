@@ -1,0 +1,20 @@
+class Solution:
+    def subarraysDivByK(self, nums: List[int], k: int) -> int:
+        #initialize
+        
+        running=count=0
+        
+        #remainder store ke liye extra memory create krenge
+        #Defaultdict is a container like dictionaries present in the module collections.
+        #It provides a default value for the key that does not exists.
+        
+        remainders = collections.defaultdict(int)
+        remainders[0]=1   #initially map 0 to 1 
+
+        for n in nums:
+            running+=n
+            if(running % k in remainders):
+                count+=remainders[running%k]
+            remainders[running%k]+=1
+        
+        return count
